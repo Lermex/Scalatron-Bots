@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact build-on-make="true" name="ScalatronBot:jar">
-    <output-path>$PROJECT_DIR$/../../Scalatron/bots/Lermex</output-path>
+    <output-path>$USER_HOME$/programming/Scalatron/bots/Lermex</output-path>
     <root id="root">
       <element id="archive" name="ScalatronBot.jar">
         <element id="module-output" name="BinaryBehemoth" />

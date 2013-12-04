@@ -3,7 +3,7 @@
     <output-path>$USER_HOME$/programming/Scalatron/bots/Lermex</output-path>
     <root id="root">
       <element id="archive" name="ScalatronBot.jar">
-        <element id="module-output" name="BinaryBehemoth" />
+        <element id="module-output" name="CasualCalamity" />
       </element>
     </root>
   </artifact>

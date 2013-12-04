@@ -12,8 +12,24 @@ class Vision(cells: String) {
   def relPosFromIndex(index: Int) = relPosFromAbsPos(absPosFromIndex(index))
   def cellAtRelPos(relPos: XY) = cells.charAt(indexFromRelPos(relPos))
 
-  def offsetToNearest(c: Char): Option[XY] = {
-    var nearestPosOpt : Option[XY] = None
+  def absolutePositionOfFarthest(c: Char): Option[XY] = {
+    var farthestPosition : Option[XY] = None
+    var farthestDistance = Double.MaxValue
+    for(i <- 0 until cells.length) {
+      if(c == cells(i)) {
+        val pos = absPosFromIndex(i)
+        val distanceToCenter = pos.distanceTo(center)
+        if(distanceToCenter > farthestDistance) {
+          farthestDistance = distanceToCenter
+          farthestPosition = Some(pos)
+        }
+      }
+    }
+    farthestPosition
+  }
+
+  def absolutePositionOfNearest(c: Char): Option[XY] = {
+    var nearestPosition : Option[XY] = None
     var nearestDistance = Double.MaxValue
     for(i <- 0 until cells.length) {
       if(c == cells(i)) {
@@ -21,11 +37,17 @@ class Vision(cells: String) {
         val distanceToCenter = pos.distanceTo(center)
         if(distanceToCenter < nearestDistance) {
           nearestDistance = distanceToCenter
-          nearestPosOpt = Some(pos - center)
+          nearestPosition = Some(pos)
         }
       }
     }
-    nearestPosOpt
+    nearestPosition
   }
 
+  def offsetToNearest(c: Char): Option[XY] = {
+    absolutePositionOfNearest(c) match {
+      case Some(xy: XY) => Some (relPosFromAbsPos(xy))
+      case None => None
+    }
+  }
 }

@@ -20,9 +20,15 @@ class BinaryBehemoth {
     }
   }
 
-  def welcome(params: Map[String,String]) = print("got welcome")
+  def welcome(params: Map[String,String]) = {
+    print("got welcome")
+    ""
+  }
 
-  def goodbye(params: Map[String,String]) = print("got goodbye")
+  def goodbye(params: Map[String,String]) = {
+    print("got goodbye")
+    ""
+  }
 
   def react(params: Map[String, String]) = params("generation").toInt match {
     case 0 => masterReact(params)

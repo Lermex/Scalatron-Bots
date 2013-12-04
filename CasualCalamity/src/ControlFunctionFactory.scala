@@ -1,3 +1,3 @@
 class ControlFunctionFactory {
-  def create = new BinaryBehemoth().respond _
+  def create = new CasualCalamity().respond _
 }
